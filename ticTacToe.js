@@ -92,25 +92,49 @@ const Gameboard=(function(){
     else if(board[0][2]===board[1][1]===board[2][0]==="X") return true;
     else if(board[0][2]===board[1][1]===board[2][0]==="O") return true;
   }
+  const resetBoard=()=>{
+    const squareDiv=document.querySelectorAll(".squareDiv")
+    squareDiv.forEach(div=>{
+      div.innerHTML=" ";
+    })
+    for(let i=0;i<board.length;i++){
+      for(let j=0;j<board[i].length;j++){
+        board[i][j]=" "
+          
+      }
+    }
+  }
   const giveResult=()=>{
      // Check rows
      let result='';
+     const notification=document.querySelector(".notification");
+     const p=document.createElement("p");
+
     for(let i=0;i<3;i++){
       //check rows
       if(board[i][0]===board[i][1]&&board[i][1]===board[i][2]&&board[i][0]!=" "){
-        board[i][0]==="X"? console.log("player1 wins"):console.log("player2 wins")
+        board[i][0]==="X"? p.textContent="Player1 wins the game":p.textContent="Player2 wins the game";
+        notification.appendChild(p);
+        notification.style.display="block";
       }
       //check columns
       else if(board[0][i]===board[1][i]&&board[1][i]===board[2][i]&&board[0][i]!=" "){
-        board[0][i]==="X"? console.log("player1 wins"):console.log("player2 wins")
+        board[0][i]==="X"? p.textContent="Player1 wins the game":p.textContent="Player2 wins the game";
+        notification.appendChild(p);
+        notification.style.display="block";
       }
     }
     if(board[0][0]===board[1][1] && board[1][1]===board[2][2]&& board[1][1]!=" "){
-      board[0][0]==="X"? console.log("player1 wins"):console.log("player2 wins")
+      board[0][0]==="X"? p.textContent="Player1 wins the game":p.textContent="Player2 wins the game";
+      notification.appendChild(p);
+      notification.style.display="block";
     }
     else if(board[0][2]===board[1][1] && board[1][1]===board[2][0]&& board[1][1]!=" "){
-      board[0][2]==="X"? console.log("player1 wins"):console.log("player2 wins")
+      board[0][2]==="X"? p.textContent="Player1 wins the game":p.textContent="Player2 wins the game";
+      notification.appendChild(p);
+      notification.style.display="block";
     }
+  
 }
   
 
