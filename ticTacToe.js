@@ -19,6 +19,7 @@ const Gameboard=(function(){
         if(div.textContent===""){
           console.log("bi trong");
           const p=document.createElement("p");
+          p.setAttribute("class","mark");
           if(count1===count2){
             p.textContent=player1.mark;
             toMark(player1.mark,row,col)
