@@ -25,9 +25,25 @@ const toDraw=()=>{
       console.log(array);
   }
 }
+const displayUIGameBoard=()=>{
+  const gameBoard=document.querySelector(".gameBoard");
+  for(let i=0;i<3;i++){
+    for(let j=0;j<3;j++){
+      const squareDiv=document.createElement("div");
+      squareDiv.setAttribute("class","squareDiv");
+      squareDiv.setAttribute("data-row",i);
+      squareDiv.setAttribute("data-col",j);
+      squareDiv.style.height=`${500/3}px`;
+      squareDiv.style.width=`${500/3}px`;
+      gameBoard.appendChild(squareDiv);
+    }
+  
+  }
+}
   return{
     toCheck,
     toMark,
     toDraw,
+    displayUIGameBoard,
   }
 })
