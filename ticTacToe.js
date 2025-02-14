@@ -140,8 +140,8 @@ const Gameboard=(function(){
         squareDiv.setAttribute("class","squareDiv");
         squareDiv.setAttribute("data-row",i);
         squareDiv.setAttribute("data-col",j);
-        squareDiv.style.height=`${500/3}px`;
-        squareDiv.style.width=`${500/3}px`;
+        squareDiv.style.height=`${300/3}px`;
+        squareDiv.style.width=`${300/3}px`;
         gameBoard.appendChild(squareDiv);
       }
     
