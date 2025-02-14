@@ -60,11 +60,49 @@ const giveResult=()=>{
    board[0][2]==="X"? console.log("player1 wins"):console.log("player2 wins")
  }
 }
+const toMarkDOM=()=>{
+  const squareDiv=document.querySelectorAll(".squareDiv");
+  let count1=0;
+  let count2=0;
+  squareDiv.forEach(div=>{
+    div.addEventListener("click",function(){
+      let row=div.dataset.row;
+      let col=div.dataset.col;
+      
+      if(div.textContent===""){
+        console.log("bi trong");
+        const p=document.createElement("p");
+        if(count1===count2){
+          p.textContent=player1.mark;
+          toMark(player1.mark,row,col)
+           console.log(row);console.log(col)
+          toDraw();
+          div.appendChild(p);
+          count1++;
+        }
+        else if(count1>count2){
+          p.textContent=player2.mark;
+          toMark(player2.mark,row,col)
+          console.log(row),console.log(col)
+          toDraw();
+          div.appendChild(p);
+          count2++;
+        }
+      
+      } else {
+        console.log("co mark roi");
+        return;
+      }
+      giveResult();
+    })
+  })
+}
   return{
     toCheck,
     toMark,
     toDraw,
     displayUIGameBoard,
     giveResult,
+    toMarkDOM,
   }
 })
