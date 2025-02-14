@@ -164,25 +164,54 @@ const Gameboard=(function(){
       }
     }
    else if(type==="connect4Game"){
-    let winnerDeclared = false;
-    if(!winnerDeclared){
-      for(let i=0;i<board1.length-3;i++){
-        for(let j=0;j<board1[i].length-3;j++){
-          if(board1[i][j]===board1[i][j+1]&& board1[i][j+1]===board1[i][j+2]&&board1[i][j+2]===board1[i][j+3]){
-             if(board1[i][j]!==" "){
-               declareWinner(board1[i][j]);
-             }
-          }
-          else if(board1[i][j]===board1[i+1][j]&&board1[i+1][j]===board1[i+2][j]&&board1[i+2][j]===board1[i+3][j]){
-            if(board1[i][j]!==" "){
-              declareWinner(board1[i][j]);
+      
+      let winnerDeclared = false;
+      if(!winnerDeclared){
+        //checking horizontally
+        for(let i=0;i<board1.length;i++){
+          for(let j=0;j<board1[i].length-3;j++){
+            if(board1[i][j]===board1[i][j+1]&& board1[i][j+1]===board1[i][j+2]&&board1[i][j+2]===board1[i][j+3]){
+               if(board1[i][j]!==" "){
+                 declareWinner(board1[i][j]);
+               }
             }
+         
           }
         }
+        //checking vertically
+        for(let j=0;j<board1.length-3;j++){
+          for(let i=0;i<board1[i]-3;i++){
+              if(board1[i][j]===board1[i+1][j]&&board1[i+1][j]===board1[i+2][j]&&board1[i+2]===board1[i+3]){
+                if(board[i][j]!==" "){
+                  declareWinner(board1[i][j])
+                }
+              }
+          }
+        }
+        //checking diagnal
+        for(let i=0;i<board1.length-3;i++){
+          for(let j=0;j<board1[i].length-3;j++){
+             if(board1[i][j]===board1[i+1][j+1]&& board1[i+1][j+1]===board1[i+2][j+2]&& board1[i+2][j+2]===board1[i+3][j+3]){
+                if(board1[i][j]!==" "){
+                  declareWinner(board1[i][j])
+                }
+             }
+          }
+        }
+       //checking anti diagnal
+       for(let i=3;i<board1.length;i++){
+        for (let j=0;j<board1[i].length-3;j++){
+           if(board1[i][j]===board1[i-1][j+1]&&board1[i-1][j+1]===board1[i-2][j+2]&&board1[i-2][j+2]===board1[i-3][j+3]){
+            if(board1[i][j]!==" "){
+              declareWinner(board1[i][j])
+            }
+           }
+        }
+       }
       }
     }
    
-   }
+   
   };
 
 
