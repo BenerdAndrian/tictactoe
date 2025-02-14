@@ -7,3 +7,29 @@ html{
     margin:0;
     box-sizing:border-box;
 }
+h1{
+    color:white;
+    font-size:2rem;
+    text-align:center;
+}
+body{
+   
+    width:100vw;
+    height:100vh;
+    background:linear-gradient(0,rgb(62, 230, 221),rgb(13, 73, 153));
+    background-repeat: no-repeat;
+}
+.gameBoard{
+    width:500px;
+    height:500px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    flex-wrap:wrap;
+   
+}
+.squareDiv{
+    border:1px solid white;
+}
