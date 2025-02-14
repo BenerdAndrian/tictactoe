@@ -40,10 +40,31 @@ const displayUIGameBoard=()=>{
   
   }
 }
+const giveResult=()=>{
+  // Check rows
+  let result='';
+ for(let i=0;i<3;i++){
+   //check rows
+   if(board[i][0]===board[i][1]&&board[i][1]===board[i][2]&&board[i][0]!=" "){
+     board[i][0]==="X"? console.log("player1 wins"):console.log("player2 wins")
+   }
+   //check columns
+   else if(board[0][i]===board[1][i]&&board[1][i]===board[2][i]&&board[0][i]!=" "){
+     board[0][i]==="X"? console.log("player1 wins"):console.log("player2 wins")
+   }
+ }
+ if(board[0][0]===board[1][1] && board[1][1]===board[2][2]&& board[1][1]!=" "){
+   board[0][0]==="X"? console.log("player1 wins"):console.log("player2 wins")
+ }
+ else if(board[0][2]===board[1][1] && board[1][1]===board[2][0]&& board[1][1]!=" "){
+   board[0][2]==="X"? console.log("player1 wins"):console.log("player2 wins")
+ }
+}
   return{
     toCheck,
     toMark,
     toDraw,
     displayUIGameBoard,
+    giveResult,
   }
 })
