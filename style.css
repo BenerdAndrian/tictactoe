@@ -20,8 +20,8 @@ body{
     background-repeat: no-repeat;
 }
 .gameBoard{
-    width:300px;
-    height:300px;
+    width:502px;
+    height:502px;
     position:absolute;
     top:50%;
     left:50%;

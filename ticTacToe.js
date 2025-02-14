@@ -12,6 +12,7 @@ const Gameboard=(function(){
   const toMarkDOM=()=>{
     const squareDiv=document.querySelectorAll(".squareDiv");
     squareDiv.forEach(div=>{
+      console.log(div)
       div.addEventListener("click",function(){
         let row=div.dataset.row;
         let col=div.dataset.col;
@@ -21,7 +22,7 @@ const Gameboard=(function(){
           p.setAttribute("class","mark");
           if(count1===count2){
             p.textContent=player1.mark;
-            toMark(player1.mark,row,col)
+            // toMark(player1.mark,row,col)
              console.log(row);console.log(col)
             toDraw();
             div.appendChild(p);
@@ -29,7 +30,7 @@ const Gameboard=(function(){
           }
           else if(count1>count2){
             p.textContent=player2.mark;
-            toMark(player2.mark,row,col)
+            // toMark(player2.mark,row,col)
             console.log(row),console.log(col)
             toDraw();
             div.appendChild(p);
@@ -44,7 +45,25 @@ const Gameboard=(function(){
       })
     })
   }
- 
+  const modeChange=()=>{
+  const connect3=document.querySelector(".connect3");
+  const connect4=document.querySelector(".connect4");
+  const connect5=document.querySelector(".connect5");
+  
+  connect3.addEventListener("click",function(){
+      displayUIGameBoard(3);
+      toMarkDOM();
+  })
+  connect4.addEventListener("click",function(){
+    displayUIGameBoard(7);
+    toMarkDOM();
+  })
+  connect5.addEventListener("click",function(){
+    displayUIGameBoard(15);
+    toMarkDOM();
+  })
+  
+  }
   const toDraw=()=>{
     for(let i=0;i<board.length;i++){
         const array=[];
@@ -132,22 +151,26 @@ const Gameboard=(function(){
   };
 
 
-  const displayUIGameBoard=()=>{
+  const displayUIGameBoard=(num)=>{
     const gameBoard=document.querySelector(".gameBoard");
-    for(let i=0;i<3;i++){
-      for(let j=0;j<3;j++){
+    gameBoard.innerHTML=""
+    for(let i=0;i<num;i++){
+      for(let j=0;j<num;j++){
         const squareDiv=document.createElement("div");
         squareDiv.setAttribute("class","squareDiv");
         squareDiv.setAttribute("data-row",i);
         squareDiv.setAttribute("data-col",j);
-        squareDiv.style.height=`${300/3}px`;
-        squareDiv.style.width=`${300/3}px`;
+        squareDiv.style.height=`${500/num}px`;
+        squareDiv.style.width=`${500/num}px`;
         gameBoard.appendChild(squareDiv);
       }
     
     }
   }
- 
+ const toPlayGame=()=>{
+  modeChange();
+
+ }
   const player1={
     mark:"X",
   }
@@ -160,9 +183,11 @@ const Gameboard=(function(){
     giveResult,
     displayUIGameBoard,
     toMarkDOM,
+    modeChange,
+    toPlayGame,
   }
 })();
 
 
-Gameboard.displayUIGameBoard();
-Gameboard.toMarkDOM();
+Gameboard.toPlayGame();
+
