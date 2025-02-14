@@ -13,8 +13,21 @@ const Gameboard=(function(){
         
     }
   }
-
+  const toMark=(mark,row,column)=>{
+    board[row][column]=mark;
+}
+const toDraw=()=>{
+  for(let i=0;i<board.length;i++){
+      const array=[];
+      for(let j=0;j<board[i].length;j++){
+          array.push(board[i][j]);
+      }
+      console.log(array);
+  }
+}
   return{
     toCheck,
+    toMark,
+    toDraw,
   }
 })
