@@ -52,6 +52,8 @@ const Gameboard=(function(){
           giveResult("connect3Game")
         }else if(boarding===board1){
           giveResult("connect4Game")
+        }else if(boarding===board2){
+          giveResult("connect5Game")
         }
       })
     })
@@ -179,7 +181,7 @@ const Gameboard=(function(){
           }
         }
         //checking vertically
-        for(let j=0;j<board1.length-3;j++){
+        for(let j=0;j<board1.length;j++){
           for(let i=0;i<board1[i]-3;i++){
               if(board1[i][j]===board1[i+1][j]&&board1[i+1][j]===board1[i+2][j]&&board1[i+2]===board1[i+3]){
                 if(board[i][j]!==" "){
@@ -210,7 +212,23 @@ const Gameboard=(function(){
        }
       }
     }
-   
+    
+    else if(type==="connect5Game"){
+     let winnerDeclared=false;
+      //checking horizontally
+      if(!winnerDeclared){
+        for(let i=0;i<board2.length;i++){
+          for(let j=0;j<board2[i].length-4;j++){
+             if(board2[i][j]===board2[i][j+1]&&board2[i][j+1]===board2[i][j+2]&&board2[i][j+2]===board2[i][j+3]&&board2[i][j+3]===board2[i][j+4]){
+              if(board2[i][j]!==" "){
+                declareWinner(board2[i][j])
+              }
+             }
+          }
+         }
+      }
+    
+    }
    
   };
 
