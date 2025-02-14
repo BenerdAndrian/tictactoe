@@ -97,6 +97,30 @@ const toMarkDOM=()=>{
     })
   })
 }
+const takeTurn=()=>{
+  let count1=0;
+  let count2=0;
+  let currentPlayer=player1;
+  for(let i=0;i<9;i++){
+    if(count1>count2){
+      toMarkDOM(player2.mark);
+      console.log(player2.mark)
+      count2++;
+    }
+    else if(count1===count2){
+      currentPlayer=player1;
+      toMarkDOM(player1.mark);
+      console.log(player1.mark)
+      count1++;
+    }
+  }
+}
+const player1={
+  mark:"X",
+}
+const player2={
+  mark:"O",
+}
   return{
     toCheck,
     toMark,
@@ -104,5 +128,8 @@ const toMarkDOM=()=>{
     displayUIGameBoard,
     giveResult,
     toMarkDOM,
+    takeTurn,
   }
 })
+Gameboard.displayUIGameBoard();
+Gameboard.toMarkDOM();
