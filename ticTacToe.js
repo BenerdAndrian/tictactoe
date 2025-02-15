@@ -77,6 +77,11 @@ const Gameboard=(function(){
   const connect4=document.querySelector(".connect4");
   const connect5=document.querySelector(".connect5");
   const playTurn=document.querySelector(".playTurn")
+  displayUIGameBoard(3);
+      playTurn.style.display="block";
+      playTurn.textContent="Player's X Turn"
+      count1=0;count2=0;
+      toMarkDOM(board,7);
   connect3.addEventListener("click",function(){
       displayUIGameBoard(3);
       playTurn.style.display="block";
