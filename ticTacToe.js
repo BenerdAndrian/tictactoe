@@ -87,7 +87,7 @@ const Gameboard=(function(){
       playTurn.style.display="block";
       playTurn.textContent="Player's X Turn"
       count1=0;count2=0;
-      toMarkDOM(board,7);
+      toMarkDOM(board,8);
   })
   connect4.addEventListener("click",function(){
     displayUIGameBoard(7);
@@ -101,7 +101,7 @@ const Gameboard=(function(){
     playTurn.style.display="block";
      playTurn.textContent="Player's X Turn"
      count1=0;count2=0;
-    toMarkDOM(board2,1.5);
+    toMarkDOM(board2,1.6);
   })
   
   }
