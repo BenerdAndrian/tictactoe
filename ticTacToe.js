@@ -197,7 +197,7 @@ const Gameboard=(function(){
       else if(type==="connect4Game"){closeUp(board1)}
       else if(type==="connect5Game"){closeUp(board2)}
       
-      winnerDeclared = true;  // Stop further checks once a winner is found
+     let winnerDeclared = true;  // Stop further checks once a winner is found
     };
     if(type==="connect3Game"){
       let cell = 0;
@@ -227,7 +227,7 @@ const Gameboard=(function(){
       }
     
       // Check if the game is tied (only if no winner declared)
-      if (!winnerDeclared) {
+      if (winnerDeclared) {
         squareDiv.forEach((div) => {
           if (div.textContent !== "") cell++;
           if (cell === 9) {
