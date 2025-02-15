@@ -74,40 +74,40 @@ body{
     background-color:aqua;
 }
 .playTurn{
-    font-size:2rem;
+    font-size:1.5rem;
     color:white;
     font-weight: bold;
 }
 .modeList{
     display:flex;
-    margin-top:1rem;
-    margin-left:2rem;
+    margin-top:0.7rem;
+    margin-left:1rem;
 }
 li{
     list-style:none;
 }
 .modeList button{
-    padding:1rem;
-    font-size:1.5rem;
+    padding:0.6rem;
+    font-size:1rem;
     cursor:pointer;
-    margin-right:1rem;
+    margin-right:0.6rem;
 }
 svg{
-    width:100px;
-    height:100px;
+    width:60px;
+    height:60px;
     fill:white;
 }
 .result{
     position:absolute;
-    top:20%;
-    right:8%;
-    width:40rem;
+    top:16%;
+    right:6%;
+    width:25rem;
     border:1px solid white;
     padding:1rem;
     
 }
 .result p{
-    font-size:2.5rem;
+    font-size:1.5rem;
     font-weight:bold;
     color:white;
     text-align:center;
@@ -119,20 +119,20 @@ svg{
 }
 .win_lose{
     color:white;
-    font-size:3rem;
+    font-size:1.8rem;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    width:10rem;
+    width:6rem;
 }
 .replay,.startNewGame{
     padding:1rem;
     color:white;
     background-color:rgb(46, 196, 241);
-    font-size:2rem;
-    margin-top:2rem;
+    font-size:1.4rem;
+    margin-top:1.4rem;
     cursor:pointer;
 }
 .startNewGame{
-    margin-left:2rem;
+    margin-left:1.4rem;
 }
