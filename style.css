@@ -12,11 +12,15 @@ h1{
     font-size:2rem;
     text-align:center;
 }
+h2{
+    color:white;
+    font-size:2rem;
+}
 body{
    
     width:100vw;
     height:100vh;
-    background:linear-gradient(0,rgb(62, 230, 221),rgb(13, 73, 153));
+    background:linear-gradient(0,rgb(34, 201, 192),rgb(13, 73, 153));
     background-repeat: no-repeat;
 }
 .gameBoard{
@@ -52,19 +56,22 @@ body{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    width:400px;
+    width:700px;
     height:200px;
     text-align:center;
     color:white;
-    background-color:lightgrey;
+    background-color:rgb(12, 198, 223);
     font-size:2rem;
     padding:1rem;
+    z-index:2;
+    
 }
 .close{
     font-size:1.5rem;
-    padding:0.3rem;
+    padding:0.5rem 2rem;
     cursor:pointer;
     margin-top:1rem;
+    background-color:aqua;
 }
 .playTurn{
     font-size:2rem;
@@ -73,7 +80,8 @@ body{
 }
 .modeList{
     display:flex;
-
+    margin-top:1rem;
+    margin-left:2rem;
 }
 li{
     list-style:none;
@@ -83,4 +91,48 @@ li{
     font-size:1.5rem;
     cursor:pointer;
     margin-right:1rem;
+}
+svg{
+    width:100px;
+    height:100px;
+    fill:white;
+}
+.result{
+    position:absolute;
+    top:20%;
+    right:8%;
+    width:40rem;
+    border:1px solid white;
+    padding:1rem;
+    
+}
+.result p{
+    font-size:2.5rem;
+    font-weight:bold;
+    color:white;
+    text-align:center;
+}
+.win_round{
+    display:flex;
+    align-items:center;
+
+}
+.win_lose{
+    color:white;
+    font-size:3rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:10rem;
+}
+.replay,.startNewGame{
+    padding:1rem;
+    color:white;
+    background-color:rgb(46, 196, 241);
+    font-size:2rem;
+    margin-top:2rem;
+    cursor:pointer;
+}
+.startNewGame{
+    margin-left:2rem;
 }

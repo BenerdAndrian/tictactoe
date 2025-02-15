@@ -9,6 +9,9 @@ const Gameboard=(function(){
   const board2=Array(15).fill().map(()=>Array(15).fill(" "));
   let count1=0;
   let count2=0;
+  let Xplayer=0;
+  let Oplayer=0;
+  let round=0;
   const toMark=(boarding,mark,row,column)=>{
         boarding[row][column]=mark;
         console.log(row)
@@ -18,7 +21,7 @@ const Gameboard=(function(){
   const toMarkDOM=(boarding,num)=>{
     const squareDiv=document.querySelectorAll(".squareDiv");
     const playTurn=document.querySelector(".playTurn")
-  
+     
      console.log("currentPlayer: "+currentPlayer)
     squareDiv.forEach(div=>{
       console.log(div)
@@ -66,6 +69,8 @@ const Gameboard=(function(){
         }
       })
     })
+    startNewGame(boarding)
+    replayRound(boarding)
   }
   const modeChange=()=>{
   const connect3=document.querySelector(".connect3");
@@ -103,6 +108,25 @@ const Gameboard=(function(){
         }
         console.log(array);
     }
+  }
+  const startNewGame=(boarding)=>{
+    const newGameBtn=document.querySelector(".startNewGame")
+    newGameBtn.addEventListener("click",function(){
+      round=0;
+      Xplayer=0;
+      Oplayer=0;
+      document.querySelector(".roundNumber").innerText="0"
+      document.querySelector(".XNumber").innerText="0"
+      document.querySelector(".ONumber").innerText="0";
+      resetBoard(boarding)
+    })
+   
+  }
+  const replayRound=(boarding)=>{
+      const replayBtn=document.querySelector(".replay");
+      replayBtn.addEventListener("click",function(){
+        resetBoard(boarding)
+      })
   }
   
   const resetBoard=(boarding)=>{
@@ -147,8 +171,22 @@ const Gameboard=(function(){
     const close = document.querySelector(".close");
     const squareDiv = document.querySelectorAll(".squareDiv");
     const paraNote = document.querySelector(".paraNote");
+    const Xnumber=document.querySelector(".XNumber");
+    const Onumber=document.querySelector(".ONumber");
+    const roundNumber=document.querySelector(".roundNumber");
     const declareWinner = (player) => {
+      round++;
       p.textContent = `${player === "X" ? "Player1" : "Player2"} wins the game`;
+      if(player==="X"){
+        Xplayer++;
+        Xnumber.innerText=Xplayer;
+      }else if(player==="O"){
+        Oplayer++
+        Onumber.innerText=Oplayer;
+      }
+      roundNumber.innerText=round;
+      
+      
       notification.style.display = "block";
       if(type==="connect3Game"){closeUp(board)}
       else if(type==="connect4Game"){closeUp(board1)}
@@ -175,6 +213,7 @@ const Gameboard=(function(){
     
       // Check diagonals for a winner
       if (!winnerDeclared) {
+       
         if (board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[0][0] !== " ") {
           declareWinner(board[0][0]);
         } else if (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[0][2] !== " ") {
@@ -189,6 +228,8 @@ const Gameboard=(function(){
           if (cell === 9) {
             paraNote.textContent = "The Game is tied.";
             notification.style.display = "block";
+            round++;
+            document.querySelector(".roundNumber").innerText=round;
             closeUp();
           }
         });
